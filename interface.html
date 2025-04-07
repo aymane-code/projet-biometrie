@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multimodal Recognition</title>
+</head>
+<body>
+    <button onclick="startFaceRecognition()">Reconnaissance Faciale</button>
+    <button onclick="startMultimodal()">Multimodal</button>
+    <div id="result"></div>
+
+    <script>
+        async function startMultimodal() {
+            const response = await fetch('/recognize', {method: 'POST'});
+            const result = await response.json();
+            document.getElementById('result').innerText = result.result;
+        }
+    </script>
+</body>
+</html>
